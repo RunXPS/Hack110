@@ -4,7 +4,6 @@ from csv import DictReader
 import random
 
 
-
 def read_csv_rows(path: str) -> list[dict[str, str]]:
     """Take in all rows of a csv file and output them as a list of dictionaries."""
     result: list[dict[str, str]] = []
@@ -13,10 +12,8 @@ def read_csv_rows(path: str) -> list[dict[str, str]]:
     for row in csv_reader:
         result.append(row)
     file_handle.close()
-    #print(result[0])
     return result
 
-# Current: row with lables
 
 def randMovie(data: list[dict[str,str]]):
     """One session of the game."""
@@ -35,6 +32,7 @@ def randMovie(data: list[dict[str,str]]):
         usr_inp = input(f"Guess {guesses}/3: ")
     print(f"It was: '{row['movie']}'. Better luck next time!")
 
+
 def full_session(data: list[dict[str,str]]):
     """Full game."""
     cont: str = "y"
@@ -45,10 +43,12 @@ def full_session(data: list[dict[str,str]]):
             print(cont[0])
             cont = input("Bad input. Try again: ")
 
+
 def main():
     movie_data: list[dict[str, str]] = []
     movie_data = read_csv_rows("/workspaces/Hack110/iteration1/movie_quotes.csv")
     full_session(movie_data)
+
 
 if __name__ == "__main__":
     main()
