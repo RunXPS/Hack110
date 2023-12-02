@@ -1,0 +1,13 @@
+- Accelerated clock
+- Finances organizer
+- 2048
+- Avg sports card price     
+- Alexa (Again)
+=====================
+Cinema
+- Movie Year Guesser
+- "Rotten tomatos" Guesser
+- Movie quote Guesser
+- Auto movie prompt -> enter a prompt and  
+- "Make a movie" -> game to "be a director"
+- Paper's please but as a movie producer
