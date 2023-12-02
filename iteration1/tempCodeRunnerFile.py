@@ -20,35 +20,28 @@ def read_csv_rows(path: str) -> list[dict[str, str]]:
 
 def randMovie(data: list[dict[str,str]]):
     """One session of the game."""
+    # print(data)
     row: dict[str, str] = data[random.randrange(0, len(data))]
-    guesses: int = 1
 
+    guesses: int = 1
     print(f"---Where is this quote from?---\n{row['quote']}\n")
-    usr_inp: str = input(f"Guess {guesses}/3: ")
     while (guesses < 3):
+        
+        usr_inp: str = input(f"Guess {guesses}/3: ")
         if (usr_inp.lower() in row['movie'].lower() and len(usr_inp) >= 5):
             print(f"Correct! Solved in {guesses}/3 tries")
             return
         else:
             print(f"Incorrect. Try again.")
         guesses += 1
-        usr_inp = input(f"Guess {guesses}/3: ")
+             
     print(f"It was: '{row['movie']}'. Better luck next time!")
 
-def full_session(data: list[dict[str,str]]):
-    """Full game."""
-    cont: str = "y"
-    while (cont[0] == "y"):
-        randMovie(data)
-        cont = input("Play again?(y/n) ").lower()
-        while (cont[0] != "y" and cont[0] != "n"):
-            print(cont[0])
-            cont = input("Bad input. Try again: ")
 
 def main():
     movie_data: list[dict[str, str]] = []
     movie_data = read_csv_rows("/workspaces/Hack110/iteration1/movie_quotes.csv")
-    full_session(movie_data)
+    randMovie(movie_data)
 
 if __name__ == "__main__":
     main()
